@@ -20,6 +20,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "quantum.h"
 
+// Combos
+enum combos {
+    SD_SCRL_TO,
+    KL_SCRL_MO,
+};
+
+const uint16_t PROGMEM sd_combo[] = {KC_S, KC_D, COMBO_END};
+const uint16_t PROGMEM kl_combo[] = {KC_K, KC_L, COMBO_END};
+
+combo_t key_combos[] = {
+    [SD_SCRL_TO] = COMBO(sd_combo, SCRL_TO),
+    [KL_SCRL_MO] = COMBO(kl_combo, SCRL_MO),
+};
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default (VIA)
