@@ -24,15 +24,30 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 enum combos {
     SD_SCRL_TO,
     KL_SCRL_MO,
+    COMBO_LENGTH
 };
+uint16_t COMBO_LEN = COMBO_LENGTH;
 
 const uint16_t PROGMEM sd_combo[] = {KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM kl_combo[] = {KC_K, KC_L, COMBO_END};
 
 combo_t key_combos[] = {
-    [SD_SCRL_TO] = COMBO(sd_combo, SCRL_TO),
-    [KL_SCRL_MO] = COMBO(kl_combo, SCRL_MO),
+    [SD_SCRL_TO] = COMBO_ACTION(sd_combo),
+    [KL_SCRL_MO] = COMBO_ACTION(kl_combo),
 };
+
+void process_combo_event(uint16_t combo_index, bool pressed) {
+    switch (combo_index) {
+        case SD_SCRL_TO:
+            if (pressed) {
+                keyball_set_scroll_mode(!keyball_get_scroll_mode());
+            }
+            break;
+        case KL_SCRL_MO:
+            keyball_set_scroll_mode(pressed);
+            break;
+    }
+}
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
