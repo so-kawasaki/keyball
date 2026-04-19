@@ -87,6 +87,9 @@ void keyboard_post_init_user(void) {
     set_auto_mouse_enable(true);
 #endif
 }
+#ifdef RGBLIGHT_ENABLE
+    rgblight_disable_noeeprom();
+#endif
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     // Sync scroll mode only when layer 3 itself changes (activated/deactivated).
