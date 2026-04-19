@@ -41,4 +41,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define AUTO_MOUSE_DELAY 200
 #define DYNAMIC_KEYMAP_LAYER_COUNT 6
 #define TAPPING_TERM 200
-#define POINTING_DEVICE_DEFAULT_CPI 1000
+#define KEYBALL_CPI_DEFAULT 1000
