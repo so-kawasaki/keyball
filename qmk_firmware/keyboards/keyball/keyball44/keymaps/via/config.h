@@ -40,3 +40,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define AUTO_MOUSE_TIME 800
 #define AUTO_MOUSE_DELAY 200
 #define DYNAMIC_KEYMAP_LAYER_COUNT 6
+#define TAPPING_TERM 200
