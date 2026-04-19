@@ -89,8 +89,14 @@ void keyboard_post_init_user(void) {
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    // Auto enable scroll mode when the highest layer is 3
-    keyball_set_scroll_mode(get_highest_layer(state) == 3);
+    // Sync scroll mode only when layer 3 itself changes (activated/deactivated).
+    // Avoids resetting combo-toggled scroll mode on unrelated layer transitions
+    // (e.g. auto mouse layer 4, LT(1)/LT(2) keys).
+    bool l3_active = layer_state_cmp(state, 3);
+    bool l3_was    = layer_state_cmp(layer_state, 3);
+    if (l3_active != l3_was) {
+        keyball_set_scroll_mode(l3_active);
+    }
     return state;
 }
 
