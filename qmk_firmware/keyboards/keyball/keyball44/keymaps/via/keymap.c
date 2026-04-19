@@ -28,8 +28,8 @@ enum combos {
 };
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
-const uint16_t PROGMEM sd_combo[] = {KC_S, KC_D, COMBO_END};
-const uint16_t PROGMEM kl_combo[] = {KC_K, KC_L, COMBO_END};
+const uint16_t PROGMEM sd_combo[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM kl_combo[] = {KC_COMM, KC_DOT, COMBO_END};
 
 combo_t key_combos[] = {
     [SD_SCRL_TO] = COMBO_ACTION(sd_combo),
